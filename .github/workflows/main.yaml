@@ -42,10 +42,17 @@ jobs:
           git config user.email "omkar.mane@acquia.com"
           git remote add target nodejsintegrationtest@svn-1.simba4.srvs.ahdev.co:nodejsintegrationtest.git
 
+      - name: Set up SSH for SVN
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H svn-1.simba4.srvs.ahdev.co >> ~/.ssh/known_hosts
+
       - name: Commit and push
         run: |
           cd build-output
-          git checkout -b built-branch
+          git checkout -b ext-ci-cd-github
           git add .
           git commit -m "Build output from GitHub Actions"
-          git push --force target built-branch
+          git push --force target ext-ci-cd-github
