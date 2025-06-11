@@ -7,9 +7,9 @@ export default function Home() {
         {/* Decorative Hero Image */}
         <div className="absolute -top-12 left-1/2 -translate-x-1/2">
           <Image
-            src="/cicd-illustration.svg" // Place your SVG or PNG in /public/
-            width={90}
-            height={90}
+            src="/cicd-illustration.png" // Place your SVG or PNG in /public/
+            width={100}
+            height={100}
             alt="CI/CD Illustration"
             className="drop-shadow-lg"
             priority
@@ -30,7 +30,8 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-center gap-4 w-full">
           <a
             href="https://github.com/omkar-mane/sample-nextjs"
-            className="inline-flex justify-center items-center rounded-full px-7 py-3 bg-gradient-to-br from-blue-600 to-violet-600 text-white font-semibold text-lg shadow-md hover:shadow-xl hover:from-violet-700 hover:to-blue-700 transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="inline-flex justify-center items-center rounded-full px-7 py-3 bg-black border-2 border-gray-900 font-semibold text-white shadow-md hover:bg-gray
+            -900 hover:text-white hover:border-transparent transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-600"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,7 +49,7 @@ export default function Home() {
           <a
             href="https://nextjs.org/docs"
             className="inline-flex justify-center items-center rounded-full px-7 py-3 bg-white border-2 border-gray-900 text-gray-900 font-semibold text-lg shadow-md hover:bg-gray
-            -900 hover:text-white hover:border-transparent transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-600"
+            -900 hover:text-black hover:border-transparent transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-600"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -70,7 +71,7 @@ export default function Home() {
           </a>
         </div>
         {/* Footer or attribution */}
-        <footer className="mt-10 text-gray-400 text-sm">
+        <footer className="mt-10 text-black-400 text-sm">
           Made with <span className="text-purple-600">♥</span> using Next.js &amp; GitHub Actions.
         </footer>
       </div>
