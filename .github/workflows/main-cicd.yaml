@@ -1,9 +1,9 @@
 name: Build Next.js and Push to Remote
 
-# on:
-#   push:
-#     branches:
-#       - main  # or your desired source branch
+on:
+  push:
+    branches:
+      - main  # or your desired source branch
 
 jobs:
   build-and-push:
@@ -31,7 +31,7 @@ jobs:
         run: |
           rm -rf build-output
           mkdir build-output
-          cp -R _static public package.json next.config.js node_modules acquia_config.yaml build-output/
+          cp -R public pages package package.json next.config.js acquia_config.yaml build-output/
           # Add any other files you need
 
       - name: Set up git
@@ -40,14 +40,14 @@ jobs:
           git init
           git config user.name "omkar-mane"
           git config user.email "omkar.mane@acquia.com"
-          git remote add target nodejsintegrationtest@svn-1.simba4.srvs.ahdev.co:nodejsintegrationtest.git
+          git remote add target nodejsacn@svn-1565.gardens.hosting.acquia.com:nodejsacn.git
 
       - name: Set up SSH for SVN
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H svn-1.simba4.srvs.ahdev.co >> ~/.ssh/known_hosts
+          ssh-keyscan -H svn-1565.gardens.hosting.acquia.com >> ~/.ssh/known_hosts
 
       - name: Commit and push
         run: |
@@ -56,3 +56,7 @@ jobs:
           git add .
           git commit -m "Build output from GitHub Actions"
           git push --force target ext-ci-cd-github
+      
+      - name: Trigger deployment
+        run : |
+          ./deploy.sh 32846-650d343b-a0f4-46ca-9001-0fc7f8acebe7 ext-ci-cd-github ${{ secrets.CLIENT_ID }} ${{ secrets.CLIENT_SECRET }}

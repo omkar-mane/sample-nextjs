@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm install && next build",
     "start": "serve -s _static -l tcp://0.0.0.0:${PORT:-3000} -n",
     "lint": "next lint"
   },
