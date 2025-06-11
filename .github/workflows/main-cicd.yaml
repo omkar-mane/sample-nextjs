@@ -31,7 +31,7 @@ jobs:
         run: |
           rm -rf build-output
           mkdir build-output
-          cp -R public pages package package.json next.config.js acquia_config.yaml build-output/
+          cp -R public pages package.json next.config.js acquia_config.yaml build-output/
           # Add any other files you need
 
       - name: Set up git
