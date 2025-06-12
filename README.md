@@ -1,58 +1,46 @@
-## Get Started
+# Demo Node.js Site: Continuous Deployment to Acquia Cloud
+ This repository contains a simple Node.js web application. Its primary purpose is to demonstrate a complete continuous deployment (CD) workflow to Acquia Cloud.
 
-This guide describes how to use DigitalOcean App Platform to run a sample Next.js application.
+## Purpose
+Showcase how a Node.js application can be set up for automated deployments to Acquia Cloud.
+Provide a reference for integrating CI/CD pipelines (e.g., GitHub Actions) with Acquia Cloud’s deployment APIs.
+Serve as a starting point for teams looking to implement or improve their deployment automation.
 
-**Note**: Following these steps may result in charges for the use of DigitalOcean services.
+## Features
+Minimal Node.js web server (for demonstration)
+Example configuration for continuous deployment
+Scripts and instructions for deploying to Acquia Cloud
+Ready-to-use GitHub Actions workflow (or insert your CI/CD tool of choice)
 
-### Requirements
+## Getting Started
+### Prerequisites
+    Node.js (v14 or newer recommended)
+    An Acquia Cloud account with deployment API access
+    (Optional) jq for script JSON parsing if using deployment scripts
+### Installation
+Clone the repository and install dependencies:
+```
+git clone https://github.com/your-org/demo-nodejs-acquia-cd.git
+cd demo-nodejs-acquia-cd
+npm install
+```
 
-* You need a DigitalOcean account. If you do not already have one, first [sign up](https://cloud.digitalocean.com/registrations/new).
+Running Locally
+```
+npm start
+```
+Visit http://localhost:3000 in your browser.
 
-## Deploy the App
+### Continuous Deployment Workflow
+This repository includes:
+CI/CD workflow configuration (see .github/workflows/ or your chosen CI provider)
+Deployment scripts to trigger code deployments to Acquia Cloud via API
+On every push to main (or your configured branch):
+The CI pipeline runs tests and builds the app.
+If successful, a deployment is triggered to the specified Acquia Cloud environment.
+See deployment.md (if present) or the workflow YAML for detailed steps and configuration.
 
-Click the following button to deploy the app to App Platform. If you are not currently logged in with your DigitalOcean account, this button prompts you to to log in.
-
-[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-nextjs/tree/main)
-
-Note that, for the purposes of this tutorial, this button deploys the app directly from DigitalOcean's GitHub repository, which disables automatic redeployment since you cannot change our template. If you want automatic redeployment or you want to change the sample app's code to your own, we instead recommend you fork [our repository](https://github.com/digitalocean/sample-nextjs/tree/main).
-
-To fork our repository, click the **Fork** button in the top-right of [its page on GitHub](https://github.com/digitalocean/sample-nextjs/tree/main), then follow the on-screen instructions. To learn more about forking repos, see the [GitHub documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
-
-After forking the repo, you can view the same README in your own GitHub org; for example, in `https://github.com/<your-org>/sample-nextjs`. To deploy the new repo, visit the [control panel](https://cloud.digitalocean.com/apps) and click the **Create App** button. This takes you to the app creation page. Under **Service Provider**, select **GitHub**. Then, under **Repository**, select your newly-forked repo. Ensure that your branch is set to **main** and **Autodeploy** is checked on. Finally, click **Next**.
-
-After clicking the **Deploy to DigitalOcean** button or completing the instructions above to fork the repo, follow these steps:
-
-1. Configure the app, such as by specifying HTTP routes, declaring environment variables, or adding a database. For the purposes of this tutorial, this step is optional.
-1. Provide a name for your app and select the region to deploy your app to, then click **Next**. By default, App Platform selects the region closest to you. Unless your app needs to interface with external services, your chosen region does not affect the app's performance, since to all App Platform apps are routed through a global CDN.
-1. On the following screen, leave all the fields as they are and click **Next**.
-1. Confirm your plan settings and how many containers you want to launch and click **Launch Basic/Pro App**.
-
-After, you should see a "Building..." progress indicator. You can click **View Logs** to see more details of the build. It can take a few minutes for the build to finish, but you can follow the progress in the **Deployments** tab.
-
-Once the build completes successfully, click the **Live App** link in the header and you should see your running application in a new tab, displaying the home page.
-
-
-## Make Changes to Your App
-
-If you forked our repo, you can now make changes to your copy of the sample app. Pushing a new change to the forked repo automatically redeploys the app to App Platform with zero downtime.
-
-Here's an example code change you can make for this app:
-
-1. Edit `pages/index.js` and replace "Welcome to Your Next.js App" with a different greeting
-1. Commit the change to the `main` branch. Normally it's a better practice to create a new branch for your change and then merge that branch to `main` after review, but for this demo you can commit to the `main` branch directly.
-1. Visit the [control panel](https://cloud.digitalocean.com/apps) and navigate to your sample app.
-1. You should see a "Building..." progress indicator, just like when you first created the app.
-1. Once the build completes successfully, click the **Live App** link in the header and you should see your updated application running. You may need to force refresh the page in your browser (e.g. using **Shift** + **Reload**).
-
-## Learn More
-
-To learn more about App Platform and how to manage and update your application, see [our App Platform documentation](https://www.digitalocean.com/docs/app-platform/).
-
-## Delete the App
-
-When you no longer need this sample application running live, you can delete it by following these steps:
-1. Visit the [Apps control panel](https://cloud.digitalocean.com/apps).
-2. Navigate to the sample app.
-3. In the **Settings** tab, click **Destroy**.
-
-**Note**: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.
+### Customization
+Update environment variables and secrets in your CI/CD platform for Acquia Cloud credentials.
+Modify the deployment script as needed for your team’s workflow or environment structure.
+Demo Node.js Site: Continuous Deployment to Acquia Cloud
