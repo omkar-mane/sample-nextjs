@@ -78,8 +78,8 @@ if [[ -z "$environmentId" || -z "$branch" || -z "$CLIENT_ID" || -z "$CLIENT_SECR
     usage
 fi
 
-AUTH_SERVER_URL="https://accounts.acquia.com/api/auth/oauth/token"
-CODE_DEPLOYMENT_URL="https://cloud.acquia.com/api/environments/${environmentId}/code/actions/switch"
+AUTH_SERVER_URL="https://accountsstg.network.acquia-sites.com/api/auth/oauth/token"
+CODE_DEPLOYMENT_URL="https://n3stg.network.acquia-sites.com/api/environments/${environmentId}/code/actions/switch"
 
 # Obtain access token
 response=$(curl --silent -L --request POST \
