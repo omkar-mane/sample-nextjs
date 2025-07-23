@@ -1,1 +1,1 @@
-external_CI_CD: true
+enableExternalCICD: true
