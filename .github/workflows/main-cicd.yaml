@@ -1,4 +1,4 @@
-name: Build Next.js and Push to Remote
+name: CI + CD
 
 on: 
   workflow_dispatch  # Manual trigger only - won't run automatically
