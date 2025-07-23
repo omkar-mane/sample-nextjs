@@ -2,6 +2,10 @@ name: Build Next.js and Push to Remote
 
 on: 
   workflow_dispatch  # Manual trigger only - won't run automatically
+# on:
+#   push:
+#     branches:
+#       - main  # or your desired source branch
 
 jobs:
   build-and-push:
