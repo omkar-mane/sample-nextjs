@@ -59,4 +59,4 @@ jobs:
       
       - name: Trigger deployment
         run : |
-          ./deploy.sh 32846-650d343b-a0f4-46ca-9001-0fc7f8acebe7 ext-ci-cd-github ${{ secrets.CLIENT_ID }} ${{ secrets.CLIENT_SECRET }}
+          ./deploy.sh --client-id=${{ secrets.CLIENT_ID }} --client-secret=${{ secrets.CLIENT_SECRET }} --environment-id=32846-650d343b-a0f4-46ca-9001-0fc7f8acebe7 --branch=ext-ci-cd-github
