@@ -1,9 +1,9 @@
 name: Build Next.js and Push to Remote
 
-on:
-  push:
-    branches:
-      - main  # or your desired source branch
+# on:
+#  push:
+#    branches:
+#      - main  # or your desired source branch
 
 jobs:
   build-and-push:
